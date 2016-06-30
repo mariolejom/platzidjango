@@ -12,4 +12,4 @@ def hello_world(request):
     context = {
         'product': producto
     }
-    return HttpResponse(template.render(request, context))
+    return HttpResponse(template.render(context, request))

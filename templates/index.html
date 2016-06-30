@@ -8,7 +8,11 @@
     <h1>Hola</h1>
     <ul>
         {% for pr in product %}
-            <li>{{ pr.name }} | {{ pr.descripcion }}</li>
+            <li>
+                {{ pr.name }} |
+                {{ pr.descripcion }}
+                <img src="{{ pr.image.url }}">
+            </li>
         {% endfor %}
     </ul>
 </body>

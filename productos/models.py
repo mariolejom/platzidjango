@@ -12,3 +12,7 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.name
+
+    #orden admin
+    class Meta:
+        ordering = ('id',)

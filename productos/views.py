@@ -25,7 +25,7 @@ def product_detail(request, pk):
 
 def new_product(request):
     template = loader.get_template('new_product.html')
-    form = ProductoForm()
+    form = ProductForm()
     context = {
         'form': form
     }

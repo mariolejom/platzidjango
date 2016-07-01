@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Hola</h1>
+    <a href="{% url 'productos.views.new_product' %}">New products</a>
     <ul>
         {% for pr in product %}
             <li>

@@ -1,4 +1,5 @@
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import (
     render,
@@ -12,12 +13,14 @@ from django.views.generic.detail import DetailView
 
 from .models import Producto
 from .forms import ProductForm
+
+from .mixins import LoginRequiredMixin
 # Create your views here.
 
 class ProductList(ListView):
     model = Producto
 
-class ProductDetail(DetailView):
+class ProductDetail(LoginRequiredMixin, DetailView):
     model = Producto
 
 # def hello_world(request):
@@ -38,6 +41,7 @@ class ProductDetail(DetailView):
 #     }
 #     return HttpResponse(template.render(context, request))
 
+@login_required()
 def new_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
